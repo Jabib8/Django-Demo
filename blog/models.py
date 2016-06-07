@@ -7,7 +7,8 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-
+    states=((1,"Published"),(2,"filed"),(3,"Need Edit"),(4,"Need Check"))
+    status = models.IntegerField(choices=states,default=4)
 
     def publish(self):
             self.published_date = timezone.now()
