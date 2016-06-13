@@ -10,7 +10,7 @@ def post_list(request):
 
 def post_detail(request, pk):
         post = get_object_or_404(Post, pk=pk)
-        id_user=1
+        id_user=request.user.id
         return render(request, 'blog/post_detail.html', {'post': post,'id':id_user})
 
 def post_new(request):
